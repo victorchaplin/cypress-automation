@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/victorchaplin/cypress-automation#readme",
   "devDependencies": {
-    "cypress": "^5.0.0"
+    "cypress": "^5.1.0"
   }
 }

@@ -1,5 +1,5 @@
-describe('My First Test Suite', () => {
-  it('My First Test Case', () => {
+describe('My Second Test Suite', () => {
+  it('My Second Test Case', () => {
     cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/')
     
     cy.get('input.search-keyword').type('ca')
@@ -8,10 +8,6 @@ describe('My First Test Suite', () => {
 
     cy.get('.products').find('.product').as('productList')
     
-    cy.get('@productList').should('have.length', 4)
-    
-    cy.get('@productList').eq(1).contains('ADD TO CART').click()
-    
     cy.get('@productList').each(($el) => {
       const productName = $el.find('h4.product-name').text()
       if (productName.includes('Cashews')) {
@@ -19,10 +15,10 @@ describe('My First Test Suite', () => {
       }
     })
 
-    cy.get('.brand').then((logo) => {
-      cy.log(logo.text())
-    })
+    cy.get('.cart-icon > img').click()
+    
+    cy.contains('PROCEED TO CHECKOUT').click()
 
-    cy.get('.brand').should('have.text', 'GREENKART')
+    cy.contains('Place Order').click()
   })
 })
